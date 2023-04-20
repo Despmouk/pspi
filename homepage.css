@@ -1,3 +1,9 @@
 /* BEGIN CODE HERE */
+.navbar {
+    min-height: 150px;
+}
 
+footer{
+    min-height: 100px;
+}
 /* END CODE HERE */
