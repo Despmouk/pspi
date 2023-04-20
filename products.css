@@ -1,3 +1,47 @@
 /* BEGIN CODE HERE */
 
+header{
+  max-height: 150px;
+}
+
+img{
+  height: 58px;
+  width: 250px;
+}
+
+footer{
+  max-height: 100px;
+}
+
+div.ex1 {
+  width: 1200px;
+  margin: auto;
+}
+
+.space {
+  padding-right:10px;
+}
+
+header.ex2{
+  border-width: thin;
+  border-bottom-style: solid;
+  border-color: rgb(215, 211, 211);
+}
+
+footer.ex3{
+  border-width: thin;
+  border-top-style: solid;
+  border-color: rgb(215, 211, 211);
+}
+
+hr { 
+  display: block;
+  margin-top: 100px;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+} 
+
 /* END CODE HERE */
