@@ -2,18 +2,25 @@
 
 header{
   max-height: 150px;
-}
-
-img{
-  height: 58px;
-  width: 250px;
+  border-width: thin;
+  border-bottom-style: solid;
+  border-color: rgb(215, 211, 211);
+  margin-bottom: 25px;
 }
 
 footer{
   max-height: 100px;
+  min-height: 100px;
+  margin-top: 25px;
+  border-width: thin;
+  border-top-style: solid;
+  border-color: rgb(215, 211, 211);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-div.ex1 {
+main {
   width: 1200px;
   margin: auto;
 }
@@ -22,17 +29,6 @@ div.ex1 {
   padding-right:10px;
 }
 
-header.ex2{
-  border-width: thin;
-  border-bottom-style: solid;
-  border-color: rgb(215, 211, 211);
-}
-
-footer.ex3{
-  border-width: thin;
-  border-top-style: solid;
-  border-color: rgb(215, 211, 211);
-}
 
 hr { 
   display: block;

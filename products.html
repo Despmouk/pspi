@@ -9,11 +9,11 @@
   </head>
   <body>
     <!-- BEGIN CODE HERE -->
-    <header class="ex2">
-      <nav class="navbar bg-white" style="background-color: #ffffff;">
+    <header>
+      <nav class="navbar bg-white">
         <div class="container-fluid">
           <a class="navbar-brand">
-            <img src="logo.png" alt="logo.png">
+            <img src="logo.png" alt="logoCSDAUTH" width="250" height="58">
           </a>
           <div>
             <ul class="nav justify-content-end">
@@ -31,81 +31,76 @@
     </header>
 
     <main>
-      <div class="ex1">
-        <div class="row my-3">
-          <form class="d-flex" role="search">
-            <div class="row g-3 align-items-center">
-              <div class="col-auto input-group mb-3">
-                <label for="a" class="col-form-label space">Search a product</label>
-                <input id="a" name="a" type="text" class="form-control" aria-describedby="basic-addon2">
-                <button class="btn btn-primary" type="button">Search</button>
-              </div>
-            </div>
-          </form>
-          <div class="row my-2">
-            <h5>Results</h5>
-          </div>
-          <table class="table table-bordered" style="width: 1200px;">
-            <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Production Year</th>
-                <th scope="col">Price</th>
-                <th scope="col">Color</th>
-                <th scope="col">Size</th>
-              </tr>
-            </thead>
-          </table>
-        </div>
-      </div> 
-
-      <div class="ex1">
-        <div class="row my-3">
-          <h3>Add a product</h3>
-        </div>
-        <form>
-          <div class="row my-3 row g-3 align-items-center">
-            <label for="inputName" class="col-sm-1 col-form-label">Name</label>
-            <div class="col-auto">
-              <input type="text" class="form-control" id="inputName">
-            </div>
-          </div>
-          <div class="row my-3 row g-3 align-items-center">
-            <label for="inputYear" class="col-sm-1 col-form-label">Production Year</label>
-            <div class="col-auto">
-              <input type="text" class="form-control" id="inputYear">
-            </div>
-          </div>
-          <div class="row my-3 row g-3 align-items-center">
-            <label for="inputPrice" class="col-sm-1 col-form-label">Price</label>
-            <div class="col-auto">
-              <input type="text" class="form-control" id="inputPrice">
-            </div>
-          </div>
-          <div class="row my-3 row g-3 align-items-center">
-            <label for="inputColor" class="col-sm-1 col-form-label">Color</label>
-            <div class="col-auto">
-              <input type="text" class="form-control" id="inputColor">
-            </div>
-          </div>
-          <div class="row my-3 row g-3 align-items-center">
-            <label for="inputSize" class="col-sm-1 col-form-label">Size</label>
-            <div class="col-auto">
-              <input type="text" class="form-control" id="inputSize">
+      <div class="row my-3">
+        <form class="d-flex" role="search">
+          <div class="row g-3 align-items-center">
+            <div class="col-auto input-group mb-3">
+              <label for="a" class="col-form-label space">Search a product</label>
+              <input id="a" name="a" type="text" class="form-control" aria-describedby="basic-addon2">
+              <button class="btn btn-primary" type="button">Search</button>
             </div>
           </div>
         </form>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <button type="button" class="btn btn-primary">Save</button>
+        <div class="row my-2">
+          <h5>Results</h5>
         </div>
+        <table class="table table-bordered" style="width: 1200px;">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Production Year</th>
+              <th scope="col">Price</th>
+              <th scope="col">Color</th>
+              <th scope="col">Size</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      
+
+      <div class="row my-3">
+        <h3>Add a product</h3>
+      </div>
+      <form>
+        <div class="row my-3 row g-3 align-items-center">
+          <label for="inputName" class="col-sm-1 col-form-label">Name</label>
+          <div class="col-auto">
+            <input type="text" class="form-control" id="inputName">
+          </div>
+        </div>
+        <div class="row my-3 row g-3 align-items-center">
+          <label for="inputYear" class="col-sm-1 col-form-label">Production Year</label>
+          <div class="col-auto">
+            <input type="text" class="form-control" id="inputYear">
+          </div>
+        </div>
+        <div class="row my-3 row g-3 align-items-center">
+          <label for="inputPrice" class="col-sm-1 col-form-label">Price</label>
+          <div class="col-auto">
+            <input type="text" class="form-control" id="inputPrice">
+          </div>
+        </div>
+        <div class="row my-3 row g-3 align-items-center">
+          <label for="inputColor" class="col-sm-1 col-form-label">Color</label>
+          <div class="col-auto">
+            <input type="text" class="form-control" id="inputColor">
+          </div>
+        </div>
+        <div class="row my-3 row g-3 align-items-center">
+          <label for="inputSize" class="col-sm-1 col-form-label">Size</label>
+          <div class="col-auto">
+            <input type="text" class="form-control" id="inputSize">
+          </div>
+        </div>
+      </form>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button type="button" class="btn btn-primary">Save</button>
       </div>
     </main>
 
-    <footer class="footer py-3 bg-white text-center ex3">
-      <div class="container">
-        <span class="text-dark"><p>Full Name-AEM</p></span>
-      </div>
+    <footer class="footer bg-white">
+      <p>Name-3919 Name-4027 Name-3397 Anthis Ioannis-3583</p>
     </footer>
     
     <!-- END CODE HERE -->

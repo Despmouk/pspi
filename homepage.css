@@ -1,9 +1,30 @@
 /* BEGIN CODE HERE */
-.navbar {
-    min-height: 150px;
+
+header{
+    max-height: 150px;
+    border-width: thin;
+    border-bottom-style: solid;
+    border-color: rgb(215, 211, 211);
+    margin-bottom: 25px;
+  }
+
+main{
+    width: 1200px;
+    margin: auto;
 }
 
+img{
+    margin:0;
+}
 footer{
+    max-height: 100px;
     min-height: 100px;
+    margin-top: 25px;
+    border-width: thin;
+    border-top-style: solid;
+    border-color: rgb(215, 211, 211);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* END CODE HERE */
