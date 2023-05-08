@@ -6,6 +6,8 @@ from flask_cors import CORS
 from pymongo import TEXT
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from numpy import dot
+from numpy.linalg import norm
 # END CODE HERE
 
 app = Flask(__name__)
@@ -38,14 +40,21 @@ def add_product():
         mongo.db.products.update_many({"name": new_product["name"]}, {"$set": {"price": new_product["price"], "production_year": new_product["production_year"], "color": new_product["color"], "size": new_product["size"]}})
     else:
         mongo.db.products.insert_one(new_product)
-    return 
+    return "Addition made"
     # END CODE HERE
 
 
 @app.route("/content-based-filtering", methods=["POST"])
 def content_based_filtering():
     # BEGIN CODE HERE
-    return ""
+    bodyRequest = request.json
+    products = mongo.db.products.find().toArray() #na einai list
+    similarProducts= []
+    for product in products:
+        cosSimilarity = dot(bodyRequest,product)/(norm(bodyRequest)*norm(product))
+        if cosSimilarity > 70: # na einai > 70%
+            similarProducts.append(product)
+    return jsonify(similarProducts)
     # END CODE HERE
 
 

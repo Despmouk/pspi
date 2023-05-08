@@ -30,14 +30,4 @@ main {
 }
 
 
-hr { 
-  display: block;
-  margin-top: 100px;
-  margin-bottom: 0.5em;
-  margin-left: auto;
-  margin-right: auto;
-  border-style: inset;
-  border-width: 1px;
-} 
-
 /* END CODE HERE */
