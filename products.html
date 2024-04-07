@@ -1,17 +1,169 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>WIS Project - Products</title>
-    <link rel="stylesheet" href="products.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="products.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <!-- BEGIN CODE HERE -->
 
+    <!-- HEADER BEGINS HERE -->
+    <header class="container-fluid bg-white py-3">
+      <div class="row align-items-center">
+        <div class="col">
+          <img src="logo.png" alt="Logo" height="40" />
+        </div>
+        <div class="col text-end">
+          <nav>
+            <ul class="list-unstyled d-inline">
+              <li class="d-inline me-3">
+                <a href="#" class="text-primary text-decoration-none">Home</a>
+              </li>
+              <li class="d-inline">
+                <a
+                  href="#"
+                  class="text-light text-decoration-none bg-primary px-3 py-2 rounded"
+                  >Products</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- HEADER ENDS HERE -->
+    <hr class="my-0" />
+    <!-- FRAME 1 BEGINS HERE -->
+    <div class="container-fluid mt-3">
+      <div class="row align-items-center">
+        <div class="col-auto">
+          <p class="mb-0">Search a product</p>
+        </div>
+        <div class="col-auto">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="" />
+            <button type="button" class="btn btn-primary">Search</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col">
+          <h2 class="fw-bold fs-5">Results</h2>
+          <table class="table table-bordered border-light">
+            <thead class="table-light">
+              <tr>
+                <th class="bg-white">ID</th>
+                <th class="bg-white">Name</th>
+                <th class="bg-white">Production year</th>
+                <th class="bg-white">Price</th>
+                <th class="bg-white">Color</th>
+                <th class="bg-white">Size</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Table body content goes here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- FRAME 1 ENDS HERE -->
+
+    <!-- FRAME 2 BEGINS HERE -->
+    <div class="container-fluid mt-3 mb-5">
+      <h2 class="fw-bold fs-5">Add a product</h2>
+
+      <form>
+        <div class="row mt-3">
+          <div class="col-auto">
+            <label for="productName" class="form-label">Name</label>
+          </div>
+          <div class="col-auto">
+            <input
+              type="text"
+              class="form-control"
+              id="productName"
+              name="productName"
+            />
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-auto">
+            <label for="productionYear" class="form-label"
+              >Production year</label
+            >
+          </div>
+          <div class="col-auto">
+            <input
+              type="text"
+              class="form-control"
+              id="productionYear"
+              name="productionYear"
+            />
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-auto">
+            <label for="price" class="form-label">Price</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" class="form-control" id="price" name="price" />
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-auto">
+            <label for="color" class="form-label">Color</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" class="form-control" id="color" name="color" />
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-auto">
+            <label for="size" class="form-label">Size</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" class="form-control" id="size" name="size" />
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col text-end">
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- FRAME 2 ENDS HERE -->
+    <hr class="my-0" />
+    <!-- FOOTER BEGINS HERE -->
+    <footer class="container-fluid py-3 bg-white text-muted text-center">
+      <div class="row">
+        <div class="col">Full Name - 0000</div>
+      </div>
+    </footer>
+    <!-- FOOTER ENDS HERE -->
+
     <!-- END CODE HERE -->
+
     <script src="products.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

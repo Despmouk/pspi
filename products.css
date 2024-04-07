@@ -1,3 +1,13 @@
 /* BEGIN CODE HERE */
+header.container-fluid img {
+  width: 250px;
+  height: 58px;
+}
+
+label.form-label {
+  display: inline-block;
+  width: 100px;
+  text-align: left;
+}
 
 /* END CODE HERE */
