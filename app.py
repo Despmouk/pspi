@@ -1,8 +1,11 @@
 # BEGIN CODE HERE
-from flask import Flask
+from flask import Flask, request, jsonify
 from flask_pymongo import PyMongo
 from flask_cors import CORS
 from pymongo import TEXT
+from numpy import dot
+from numpy.linalg import norm
+
 # END CODE HERE
 
 app = Flask(__name__)
@@ -29,7 +32,35 @@ def add_product():
 @app.route("/content-based-filtering", methods=["POST"])
 def content_based_filtering():
     # BEGIN CODE HERE
-    return ""
+    def calculate_similarity(product1, product2):
+        cosine_similarity = dot(product1, product2) / (norm(product1) * norm(product2))
+        return cosine_similarity
+
+    given_product = request.get_json()
+    given_product_features = [
+        given_product.get("production_year"),
+        given_product.get("price"),
+        given_product.get("color"),
+        given_product.get("size"),
+    ]
+    # TODO: should id and name be included in similarity calculation?
+    similar_products = []
+    all_products = mongo.db.products.find(
+        {},
+        {"name": 1, "production_year": 1, "price": 1, "color": 1, "size": 1},
+    )
+    for product in all_products:
+        product_features = [
+            product["production_year"],
+            product["price"],
+            product["color"],
+            product["size"],
+        ]
+        similarity = calculate_similarity(given_product_features, product_features)
+        if similarity > 0.7:
+            similar_products.append(product["name"])
+
+    return jsonify(similar_products)
     # END CODE HERE
 
 
