@@ -25,7 +25,26 @@ def search():
 @app.route("/add-product", methods=["POST"])
 def add_product():
     # BEGIN CODE HERE
-    return ""
+ data = request.json
+    
+    if not data:
+        return jsonify({"error": "No JSON data provided"}), 400
+    
+    existing_product = mongo.db.products.find_one({"name": data["name"]})
+    if existing_product:
+        # Ενημέρωση των πεδίων του υπάρχοντος προϊόντος
+        existing_product['price'] = data['price']
+        existing_product['production_year'] = data['production_year']
+        existing_product['color'] = data['color']
+        existing_product['size'] = data['size']
+        mongo.db.products.save(existing_product)
+        return jsonify({"message": "Product updated successfully"}), 200
+    
+    # Προσθήκη νέου προϊόντος στη βάση
+    mongo.db.products.insert_one(data)
+    
+    return jsonify({"message": "Product added successfully"}), 201
+
     # END CODE HERE
 
 
