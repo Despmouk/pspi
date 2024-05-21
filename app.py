@@ -18,14 +18,22 @@ mongo.db.products.create_index([("name", TEXT)])
 @app.route("/search", methods=["GET"])
 def search():
     # BEGIN CODE HERE
-    return ""
+    data = request.json
+    if not data:
+        return jsonify({"error":"No JSON data provided"}), 400
+
+    query = request.args.get('query')
+    result = mongo.db.products.find({'name':query}).sort('price',-1)
+
+    return jsonify(result) 
+
     # END CODE HERE
 
 
 @app.route("/add-product", methods=["POST"])
 def add_product():
     # BEGIN CODE HERE
- data = request.json
+    data = request.json
     
     if not data:
         return jsonify({"error": "No JSON data provided"}), 400
