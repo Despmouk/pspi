@@ -18,14 +18,18 @@ mongo.db.products.create_index([("name", TEXT)])
 @app.route("/search", methods=["GET"])
 def search():
     # BEGIN CODE HERE
-    data = request.json
-    if not data:
-        return jsonify({"error":"No JSON data provided"}), 400
+    query = request.args.get("name")
+    if not query:
+        return jsonify({"error": "No query provided"}), 400
+    result = list(mongo.db.products.find({"name": query}).sort("price", -1))
 
-    query = request.args.get('query')
-    result = mongo.db.products.find({'name':query}).sort('price',-1)
+    if not result:
+        return jsonify({"error": "Product not found"}), 404
 
-    return jsonify(result) 
+    for product in result:
+        product["_id"] = str(product["_id"])
+
+    return jsonify(result)
 
     # END CODE HERE
 
@@ -34,23 +38,39 @@ def search():
 def add_product():
     # BEGIN CODE HERE
     data = request.json
-    
-    if not data:
-        return jsonify({"error": "No JSON data provided"}), 400
-    
+
+    def check_price(price):
+        parts = price.split(".")
+        if len(parts) != 2:
+            return False
+        return parts[0].isnumeric() and parts[1].isnumeric()
+
+    if (
+        not data
+        or not data["name"].strip()
+        or not data.get("production_year").isdigit()
+        or not check_price(data.get("price"))
+    ):
+        return jsonify({"error": "Wrong JSON data provided"}), 400
+
+    # Check valid values for color and size
+    valid_colors = ["1", "2", "3"]
+    valid_sizes = ["1", "2", "3", "4"]
+    if data["color"] not in valid_colors or data["size"] not in valid_sizes:
+        return jsonify({"error": "Invalid color or size provided"}), 400
+
     existing_product = mongo.db.products.find_one({"name": data["name"]})
     if existing_product:
         # Ενημέρωση των πεδίων του υπάρχοντος προϊόντος
-        existing_product['price'] = data['price']
-        existing_product['production_year'] = data['production_year']
-        existing_product['color'] = data['color']
-        existing_product['size'] = data['size']
-        mongo.db.products.save(existing_product)
+        mongo.db.products.update_one(
+            {"_id": existing_product["_id"]},
+            {"$set": data},
+        )
         return jsonify({"message": "Product updated successfully"}), 200
-    
+
     # Προσθήκη νέου προϊόντος στη βάση
     mongo.db.products.insert_one(data)
-    
+
     return jsonify({"message": "Product added successfully"}), 201
 
     # END CODE HERE
@@ -96,3 +116,8 @@ def crawler():
     # BEGIN CODE HERE
     return ""
     # END CODE HERE
+
+
+# this is not inside BEGIN and END CODE but how else is the server supposed to run?
+if __name__ == "__main__":
+    app.run(debug=True)
