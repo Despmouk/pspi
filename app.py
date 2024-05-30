@@ -8,6 +8,7 @@ from numpy.linalg import norm
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+
 # END CODE HERE
 
 app = Flask(__name__)
@@ -116,19 +117,19 @@ def content_based_filtering():
 @app.route("/crawler", methods=["GET"])
 def crawler():
     # BEGIN CODE HERE
-    url= "https:qa.auth.gr/el/x/studyguide/600000438/current"
+    url = "https:qa.auth.gr/el/x/studyguide/600000438/current"
     options = Options()
     options.headless = True
-    driver= webdriver.Chrome(options=options)
-    int(semester)
-    semester= request.args.get('semester')
+    driver = webdriver.Chrome(options=options)
+    semester = request.args.get("semester")
     driver.get(url)
     print(semester)
     section = driver.find_element(By.ID, "exam" + semester)
     elements = section.find_elements(By.TAG_NAME, "a")
     res = []
     for element in elements:
-            res.append(element.text)
+        res.append(element.text)
+    driver.quit()
     return jsonify(res)
     # END CODE HERE
 
