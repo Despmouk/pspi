@@ -108,7 +108,7 @@ def content_based_filtering():
         ]
         similarity = calculate_similarity(given_product_features, product_features)
         if similarity > 0.7:
-            similar_products.append(product)
+            similar_products.append(product["name"])
 
     return jsonify(similar_products)
     # END CODE HERE
