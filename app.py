@@ -93,7 +93,6 @@ def content_based_filtering():
         given_product.get("color"),
         given_product.get("size"),
     ]
-    # TODO: should id and name be included in similarity calculation?
     similar_products = []
     all_products = mongo.db.products.find(
         {},
@@ -134,6 +133,5 @@ def crawler():
     # END CODE HERE
 
 
-# this is not inside BEGIN and END CODE but how else is the server supposed to run?
 if __name__ == "__main__":
     app.run(debug=True)
